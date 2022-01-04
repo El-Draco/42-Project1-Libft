@@ -68,13 +68,7 @@ static char	**do_stuff(const char *s, char c, char **array)
 char	**ft_split(const char *s, char c)
 {
 	char			**array;
-	int				word;
-	int				i;
-	int				j;
 
-	word = 0;
-	i = 0;
-	j = 0;
 	if (!s)
 		return (NULL);
 	array = (char **)malloc((num_of_words(s, c) + 1) * sizeof(char *));
