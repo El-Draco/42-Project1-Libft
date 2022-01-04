@@ -17,6 +17,18 @@ make bonus
 ```
 ### This will generate the corresponding "libft.a" library.
 
+To clean all object files from the directory, run:
+``` bash
+make clean
+```
+To remove all object files and the static library, run:
+``` bash
+make fclean
+```
+To delete old files and recompile, run:
+``` bash
+make re
+```
 
 ---
 ## **Requirements:**
