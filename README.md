@@ -1,6 +1,6 @@
 # **Libft**
 
-## This library includes my recoded versions of a variety of commonly used C functions that mimic the system functions behaviour. The assignment is part of the 42 Coding school curriculum. It also includes some extra functions that are useful in string manipulation and efficient memory management. A bonus section on linked lists is also included.
+### This library includes my recoded versions of a variety of commonly used C functions that mimic the system functions behaviour. The assignment is part of the 42 Coding school curriculum. It also includes some extra functions that are useful in string manipulation and efficient memory management. A bonus section on linked lists is also included.
 ---
 
 ## **Compilation instructions:**
