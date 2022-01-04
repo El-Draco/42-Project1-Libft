@@ -1,6 +1,23 @@
 # **Libft**
 
-## This library includes my recoded versions of a variety of commonly used C functions that mimic the system functions behaviour. The assignemtn is paart of the 42 Coding school curriculum. It also includes some extra functions according that are useful in string manipulation. A bonus section on linked lists is also included.
+## This library includes my recoded versions of a variety of commonly used C functions that mimic the system functions behaviour. The assignment is part of the 42 Coding school curriculum. It also includes some extra functions that are useful in string manipulation and efficient memory management. A bonus section on linked lists is also included.
+---
+
+## **Compilation instructions:**
+
+### For compiling Part 1 and Part 2 functions, run the command:
+```bash
+make all
+```
+### This will create a library "libft.a" that contains the required functions which can later be used in future projects.
+
+### * For compiling Part 1, Part2, and the linked list functions (bonus), run the following command:
+``` bash
+make bonus
+```
+### This will generate the corresponding "libft.a" library.
+
+
 ---
 ## **Requirements:**
 
@@ -63,7 +80,7 @@
 
 ---
 ### _**ft_substr**_
-* Prototype:
+* **Prototype**:
 ``` c
 char *ft_substr(char const *s, unsigned int start, size_t len);
 ```
@@ -85,7 +102,7 @@ char *ft_substr(char const *s, unsigned int start, size_t len);
 ---
 
 ### _**ft_strjoin**_
-* Prototype:
+* **Prototype**:
 ``` c
 char *ft_strjoin(char const *s1, char const *s2);
 ```
@@ -109,7 +126,7 @@ of ’s1’ and ’s2’.
 
 
 ### _**ft_strtrim**_
-* Prototype:
+* **Prototype**:
 ``` c
 char *ft_strtrim(char const *s1, char const *set);
 ```
@@ -133,7 +150,7 @@ from the beginning and the end of the string.
 
 
 ### _**ft_split**_
-* Prototype:
+* **Prototype**:
 ``` c
 char **ft_split(char const *s, char c);
 ```
@@ -160,7 +177,7 @@ ended by a NULL pointer.
 
 
 ### _**ft_itoa**_
-* Prototype:
+* **Prototype**:
 ``` c
 char *ft_itoa(int n);
 ```
@@ -185,7 +202,7 @@ Negative numbers must be handled.
 
 
 ### _**ft_strmapi**_
-* Prototype:
+* **Prototype**:
 ``` c
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 ```
@@ -210,7 +227,7 @@ resulting from successive applications of ’f’.
 ---
 
 ### _**ft_striteri**_
-* Prototype:
+* **Prototype**:
 ``` c
 void ft_striteri(char *s, void (*f)(unsigned int, char*));
 ```
@@ -226,15 +243,12 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*));
     None.
 * **Description** 
     
-    Applies the function f to each character of the
-string passed as argument, and passing its index
-as first argument. Each character is passed by
-address to f to be modified if necessary
+    Applies the function f to each character of the string passed as argument, and passing its index as first argument. Each character is passed by address to f to be modified if necessary
 ---
 
 
 ### _**ft_putchar_fd**_
-* Prototype:
+* **Prototype**:
 ``` c
 void ft_putchar_fd(char c, int fd);
 ```
@@ -250,14 +264,13 @@ void ft_putchar_fd(char c, int fd);
     write
 * **Description** 
     
-    Outputs the character ’c’ to the given file
-descriptor.
+    Outputs the character ’c’ to the given file descriptor.
 
 ---
 
 
 ### _**ft_putstr_fd**_
-* Prototype:
+* **Prototype**:
 ``` c
 void ft_putstr_fd(char *s, int fd);
 ```
@@ -274,14 +287,13 @@ void ft_putstr_fd(char *s, int fd);
     write
 * **Description** 
     
-    Outputs the string ’s’ to the given file
-descriptor.
+    Outputs the string ’s’ to the given file descriptor.
 
 ---
 
 
 ### _**ft_putendl_fd**_
-* Prototype:
+* **Prototype**:
 ``` c
 void ft_putendl_fd(char *s, int fd);
 ```
@@ -298,12 +310,11 @@ void ft_putendl_fd(char *s, int fd);
     write
 * **Description** 
     
-     Outputs the string ’s’ to the given file
-descriptor, followed by a newline.
+     Outputs the string ’s’ to the given file descriptor, followed by a newline.
 ---
 
 ### _**ft_putnbr_fd**_
-* Prototype:
+* **Prototype**:
 ``` c
 void ft_putnbr_fd(int n, int fd);
 ```
@@ -319,7 +330,236 @@ void ft_putnbr_fd(int n, int fd);
     write
 * **Description** 
     
-    Outputs the integer ’n’ to the given file
-descriptor.
+    Outputs the integer ’n’ to the given file descriptor.
 ---
+
+
+#
+## **BONUS :**
+
+Using Linked Lists (see struct below), implement the functions mentioned below
+``` c
+typedef struct s_list
+{
+    void            *content;
+    struct s_list   *next;
+} t_list;
+```
+**Here is a description of the fields of the t_list struct:**
+> _**content**_ : The data contained in the element. The void * allows to store any kind of data.
+
+>_**next**_ : The next element’s address or NULL if it’s the last element.
+
+---
+
+### _**ft_lstnew**_
+* **Prototype**:
+``` c
+t_list *ft_lstnew(void *content);
+```
+
+* **Parameters**:
+    1. The content to create the new element with.
+* **Return value**:
+
+    The new element.
+* **External functs.**: 
+
+    malloc
+* **Description** 
+
+    Allocates (with malloc(3)) and returns a new
+element. The variable ’content’ is initialized
+with the value of the parameter ’content’. The
+variable ’next’ is initialized to NULL.
+
+---
+
+### _**ft_lstadd_front**_
+* **Prototype**:
+``` c
+void ft_lstadd_front(t_list **lst, t_list *new);
+```
+
+* **Parameters**:
+    1. The address of a pointer to the first link of a list.
+    1. The address of a pointer to the element to be added to the list.
+* **Return value**:
+
+    None.
+* **External functs.**: 
+
+    None.
+* **Description** 
+
+    Adds the element ’new’ at the beginning of the list.
+
+---
+
+
+### _**ft_lstsize**_
+* **Prototype**:
+``` c
+int ft_lstsize(t_list *lst);
+```
+
+* **Parameters**:
+    1. The beginning of the list.
+* **Return value**:
+
+    Length of the list.
+* **External functs.**: 
+
+    None.
+* **Description** 
+
+    Counts the number of elements in a list.
+
+---
+
+
+
+### _**ft_lstlast**_
+* **Prototype**:
+``` c
+t_list *ft_lstlast(t_list *lst);
+```
+
+* **Parameters**:
+    1. The beginning of the list.
+* **Return value**:
+
+    Last element of the list.
+* **External functs.**: 
+
+    None.
+* **Description** 
+
+    Returns the last element of the list.
+
+---
+
+
+### _**ft_lstadd_back**_
+* **Prototype**:
+``` c
+void ft_lstadd_back(t_list **lst, t_list *new);
+```
+
+* **Parameters**:
+    1. The address of a pointer to the first link of a list.
+    1. The address of a pointer to the element to be
+added to the list.
+* **Return value**:
+
+    None.
+* **External functs.**: 
+
+    None.
+* **Description** 
+
+    Adds the element ’new’ at the end of the list.
+
+---
+
+
+### _**ft_lstdelone**_
+* **Prototype**:
+``` c
+void ft_lstdelone(t_list *lst, void (*del)(void*));
+```
+
+* **Parameters**:
+    1. The element to free.
+    1. The address of the function used to delete the content added to the list.
+* **Return value**:
+
+    None.
+* **External functs.**: 
+
+    free.
+* **Description** 
+
+    Takes as a parameter an element and frees the
+memory of the element’s content using the function
+’del’ given as a parameter and free the element.
+The memory of ’next’ must not be freed.
+
+---
+
+
+### _**ft_lstclear**_
+* **Prototype**:
+``` c
+void ft_lstclear(t_list **lst, void (*del)(void*));
+```
+
+* **Parameters**:
+    1. The address of a pointer to an element.
+    1. The address of the function used to delete the content of the element.
+* **Return value**:
+
+    None.
+* **External functs.**: 
+
+    free.
+* **Description** 
+
+    Deletes and frees the given element and every
+successor of that element, using the function ’del’ and free(3).
+Finally, the pointer to the list must be set to
+NULL.
+
+---
+
+
+### _**ft_lstiter**_
+* **Prototype**:
+``` c
+void ft_lstiter(t_list *lst, void (*f)(void *));
+```
+
+* **Parameters**:
+    1. The adress of a pointer to an element.
+    1. The adress of the function used to iterate on the list.
+* **Return value**:
+
+    None.
+* **External functs.**: 
+
+    None.
+* **Description** 
+
+    Iterates the list ’lst’ and applies the function
+’f’ to the content of each element.
+
+---
+
+### _**ft_lstmap**_
+* **Prototype**:
+``` c
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+```
+
+* **Parameters**:
+    1. The adress of a pointer to an element.
+    1. The adress of the function used to iterate on the list.
+    1. The adress of the function used to delete the content of an element if needed.
+* **Return value**:
+
+    The new list. NULL if the allocation fails.
+* **External functs.**: 
+
+    malloc, free.
+* **Description** 
+
+    Iterates the list ’lst’ and applies the function
+’f’ to the content of each element. Creates a new
+list resulting of the successive applications of
+the function ’f’. The ’del’ function is used to
+delete the content of an element if needed.
+
+---
+
+
 
